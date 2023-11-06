@@ -3,6 +3,7 @@
 
 ### Node ###
 # Logs
+learn.txt
 logs
 *.log
 npm-debug.log*
