@@ -24,7 +24,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Please provide all the fields");
   }
 
-  const existedUser = User.findOne({
+  const existedUser = await User.findOne({
     $or: [{ username }, { email }],
   });
 
@@ -50,7 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
     fullName,
     avatar: avatar.url,
     coverImage: coverImage?.url || "",
-    username: username.toLowercase(),
+    username: username.toLowerCase(),
     email,
     password,
   });
